@@ -1,0 +1,21 @@
+CREATE DATABASE OscarDB;
+
+USE OscarDB;
+
+
+CREATE TABLE Diretores (
+ID INT PRIMARY KEY,
+Nome VARCHAR(255),
+Sexo VARCHAR(10),
+ID_Filme INT,
+Tipo_de_Filme VARCHAR(255)
+);
+
+CREATE TABLE Filmes (
+ID INT PRIMARY KEY,
+Nome VARCHAR(255),
+ID_Tipo_de_Filme INT,
+ID_Roteiro INT,
+Lancamento DATE
+);
+
