@@ -58,6 +58,12 @@ BEGIN
 END;
 DELIMITER ;
 
+INSERT INTO clientes (id_cliente,nome, email)
+VALUES (2, 'Danilo', 'Danilo@teste.com');
+
+SELECT * FROM clientes;
+SELECT * FROM historico_novos_clientes;
+
 -- Criando o trigger para registrar atualizações de pedidos na tabela de histórico de pedidos após uma atualização na tabela de pedidos
 DELIMITER //
 CREATE TRIGGER IF NOT EXISTS after_update_pedido
