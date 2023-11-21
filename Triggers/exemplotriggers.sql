@@ -59,7 +59,7 @@ END;
 DELIMITER ;
 
 INSERT INTO clientes (id_cliente,nome, email)
-VALUES (2, 'Danilo', 'Danilo@teste.com');
+VALUES (3, 'Danilo', 'Danilo@teste.com');
 
 SELECT * FROM clientes;
 SELECT * FROM historico_novos_clientes;
@@ -78,6 +78,13 @@ BEGIN
 END;
 DELIMITER ;
 
+INSERT INTO pedidos ( id_pedido, descricao, status)
+VALUES (1, 'teste','pendente' );
+
+UPDATE pedidos
+SET status = 'entregue'
+WHERE id_pedido = 1;
+
 -- Criando o trigger para adicionar entradas na tabela de exclusão de pedidos quando registros forem excluídos da tabela de histórico de pedidos
 DELIMITER //
 CREATE TRIGGER IF NOT EXISTS after_delete_historico_pedidos
@@ -89,6 +96,9 @@ BEGIN
     VALUES (OLD.id_pedido, OLD.descricao_anterior, OLD.status_anterior);
 END;
 DELIMITER ;
+
+DELETE FROM historico_pedidos
+WHERE id_pedido = 1;
 
 -- Inserindo um novo cliente na tabela clientes
 INSERT INTO clientes (nome, email) VALUES ('Maria', 'maria@example.com');
