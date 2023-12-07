@@ -1,0 +1,44 @@
+Setor de Educação
+
+Desenvolva um sistema para o setor de educação, contemplando as seguintes tabelas e seus logs:
+
+1. Alunos:
+   - Tabela `alunos` com colunas: `id`, `nome`, `idade`, `curso`, `endereco`.
+   - Funções PHP para inserção, atualização e exclusão de registros.
+   - Triggers para registrar ações na tabela `alunos_log`.
+
+2. Professores:
+   - Tabela `professores` com colunas: `id`, `nome`, `especialidade`, `email`, `telefone`.
+   - Funções PHP para inserção, atualização e exclusão de registros.
+   - Triggers para registrar ações na tabela `professores_log`.
+
+3. Disciplinas:
+   - Tabela `disciplinas` com colunas: `id`, `nome`, `carga_horaria`, `codigo`, `departamento`.
+   - Funções PHP para inserção, atualização e exclusão de registros.
+   - Triggers para registrar ações na tabela `disciplinas_log`.
+
+Tabelas de Log para o Setor de Educação
+
+Tabela de Log para Alunos:
+- `id_log`
+- `id_alunos` (chave estrangeira referenciando `alunos`)
+- `acao` (inserção, atualização, exclusão)
+- `data_registro`
+- `usuario` (opcional, para registrar quem executou a ação)
+
+Tabela de Log para Professores:
+- `id_log`
+- `id_professores` (chave estrangeira referenciando `professores`)
+- `acao` (inserção, atualização, exclusão)
+- `data_registro`
+- `usuario` (opcional, para registrar quem executou a ação)
+
+Tabela de Log para Disciplinas:
+- `id_log`
+- `id_disciplinas` (chave estrangeira referenciando `disciplinas`)
+- `acao` (inserção, atualização, exclusão)
+- `data_registro`
+- `usuario` (opcional, para registrar quem executou a ação)
+
+Esse sistema permitirá a gestão de alunos, professores e disciplinas, 
+com operações básicas nas tabelas e o registro das ações em seus respectivos logs.
