@@ -15,6 +15,7 @@ try {
         ['João', 20, 'Engenharia', 'Rua A, 123'],
         ['Maria', 22, 'Administração', 'Avenida B, 456'],
         ['Pedro', 19, 'Direito', 'Rua C, 789'],
+        ['Oswaldo', 2, 'Jogador', 'Rua B, 2'],
         // Adicione mais alunos conforme necessário
     ];
 

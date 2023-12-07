@@ -11,7 +11,7 @@ try {
     $pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
 
     // ID do aluno a ser deletado (altere conforme necessário)
-    $id_aluno = 1;
+    $id_aluno = 2;
 
     // Query para deletar o aluno pelo ID
     $stmt = $pdo->prepare("DELETE FROM alunos WHERE id = :id");
