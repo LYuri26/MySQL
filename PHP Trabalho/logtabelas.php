@@ -15,7 +15,8 @@ try {
         id_log INT AUTO_INCREMENT PRIMARY KEY,
         id_aluno INT NOT NULL,
         acao VARCHAR(50) NOT NULL,
-        data_registro TIMESTAMP DEFAULT CURRENT_TIMESTAMP
+        data_registro TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+        FOREIGN KEY (id_aluno) REFERENCES alunos (id)
     )";
     // Define a query SQL para criar a tabela alunos_log caso ela não exista
 

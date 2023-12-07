@@ -13,15 +13,13 @@ try {
     $pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
 
     // Query para criar a tabela de alunos se ela ainda não existir
-    $createTableQuery = "
-        CREATE TABLE IF NOT EXISTS alunos (
-            id INT AUTO_INCREMENT PRIMARY KEY,  -- Coluna de ID auto incremento e chave primária
-            nome VARCHAR(100) NOT NULL,  -- Coluna para armazenar nomes, não pode ser nula
-            idade INT NOT NULL,  -- Coluna para armazenar idades, não pode ser nula
-            curso VARCHAR(50) NOT NULL,  -- Coluna para armazenar cursos, não pode ser nula
-            endereco VARCHAR(150) NOT NULL  -- Coluna para armazenar endereços, não pode ser nula
-        )
-    ";
+    $createTableQuery = "CREATE TABLE IF NOT EXISTS alunos (
+        id INT AUTO_INCREMENT PRIMARY KEY,
+        nome VARCHAR(100) NOT NULL,
+        idade INT NOT NULL,
+        curso VARCHAR(50) NOT NULL,
+        endereco VARCHAR(150) NOT NULL
+    )";
 
     // Executando a query para criar a tabela
     $pdo->exec($createTableQuery);
