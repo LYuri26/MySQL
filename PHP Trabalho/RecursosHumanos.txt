@@ -1,0 +1,39 @@
+Grupo 5: Recursos Humanos
+Subgrupo 5A: Gerenciamento de Funcionários
+Tabela: funcionarios
+Colunas: id, nome, cargo, departamento
+Tabela de log: log_funcionarios
+Colunas: log_id, id, data_modificacao, alteracao, usuario
+Tabela: historico_salarios
+Colunas: id, salario_atual, data_reajuste, tipo_reajuste
+Tabela de log: log_historico_salarios
+Colunas: log_id, id, data_modificacao, alteracao, usuario
+Subgrupo 5B: Recrutamento e Seleção
+Tabela: candidatos
+Colunas: id, nome, habilidades, status_selecao
+Tabela de log: log_candidatos
+Colunas: log_id, id, data_modificacao, alteracao, usuario
+Tabela: entrevistas
+Colunas: id, data_entrevista, notas_entrevistador, decisao_final
+Tabela de log: log_entrevistas
+Colunas: log_id, id, data_modificacao, alteracao, usuario
+Subgrupo 5C: Treinamento e Desenvolvimento
+Tabela: cursos_treinamento
+Colunas: id, nome_curso, duracao, responsavel_treinamento
+Tabela de log: log_cursos_treinamento
+Colunas: log_id, id, data_modificacao, alteracao, usuario
+Tabela: feedback_desempenho
+Colunas: id, avaliacao_desempenho, areas_melhoria, plano_acao
+Tabela de log: log_feedback_desempenho
+Colunas: log_id, id, data_modificacao, alteracao, usuario
+Tabela Grupo: Gestão de Recursos Humanos
+Tabela: gestao_recursos_humanos
+Colunas: id, registros_funcionarios, processos_selecao, programas_treinamento
+Tabela de log: log_gestao_recursos_humanos
+Colunas: log_id, id, data_modificacao, alteracao, usuario
+Relacionamentos Possíveis:
+Entidades Principais: funcionarios, historico_salarios, candidatos, entrevistas, cursos_treinamento, feedback_desempenho e gestao_recursos_humanos.
+Atributos das Entidades: Principais atributos de cada entidade: id, nome, cargo, departamento para funcionarios.
+Relacionamentos entre Entidades: Conexões entre entidades relacionadas: funcionarios e historico_salarios devido ao histórico de salários dos funcionários.
+Inclusão dos Logs: Relacionamento das tabelas de log (log_funcionarios, log_historico_salarios, etc.) com suas respectivas tabelas.
+Organização e Clareza: Entidades representadas como retângulos e conexões entre entidades através de linhas, garantindo a clareza na visualização das relações.
