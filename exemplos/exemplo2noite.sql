@@ -46,6 +46,8 @@ DROP TABLE teste;
 
 -- 8. Chaves Primárias e Estrangeiras
 -- 1. Adicionar uma chave primária composta à tabela de empréstimos (exemplo hipotético)
+ALTER TABLE emprestimos MODIFY COLUMN id INT;
+
 ALTER TABLE emprestimos DROP PRIMARY KEY;
 ALTER TABLE emprestimos ADD PRIMARY KEY (usuario_id, livro_id);
 
