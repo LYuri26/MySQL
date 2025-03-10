@@ -1,11 +1,11 @@
 -- Exercício 1: Criação de Bancos de Dados
-CREATE DATABASE ecommerce_db;
-CREATE DATABASE rh_db;
+CREATE DATABASE IF NOT EXISTS ecommerce_db;
+CREATE DATABASE IF NOT EXISTS rh_db;
 
 -- Exercício 2: Criação de Tabelas no Banco ecommerce_db
 USE ecommerce_db;
 
-CREATE TABLE produtos (
+CREATE TABLE IF NOT EXISTS produtos (
     id INT AUTO_INCREMENT PRIMARY KEY,
     nome VARCHAR(100),
     descricao TEXT,
@@ -14,7 +14,7 @@ CREATE TABLE produtos (
     data_cadastro DATE
 );
 
-CREATE TABLE clientes (
+CREATE TABLE IF NOT EXISTS clientes (
     id INT AUTO_INCREMENT PRIMARY KEY,
     nome VARCHAR(100),
     email VARCHAR(100),
@@ -25,7 +25,7 @@ CREATE TABLE clientes (
 -- Exercício 3: Criação de Tabelas no Banco rh_db
 USE rh_db;
 
-CREATE TABLE funcionarios (
+CREATE TABLE IF NOT EXISTS funcionarios (
     id INT AUTO_INCREMENT PRIMARY KEY,
     nome VARCHAR(100),
     cargo VARCHAR(50),
@@ -33,7 +33,7 @@ CREATE TABLE funcionarios (
     data_contratacao DATE
 );
 
-CREATE TABLE departamentos (
+CREATE TABLE IF NOT EXISTS departamentos (
     id INT AUTO_INCREMENT PRIMARY KEY,
     nome VARCHAR(100),
     localizacao VARCHAR(100)
@@ -67,42 +67,71 @@ INSERT INTO departamentos (nome, localizacao) VALUES
 ('Logística', 'Recife');
 
 -- Exercício 5: Atualizações
+USE ecommerce_db;
+
 UPDATE produtos SET preco = preco * 1.10;
 UPDATE produtos SET quantidade_estoque = 0 WHERE quantidade_estoque < 50;
-UPDATE clientes SET telefone = '(11) 95555-1111' WHERE nome = 'João Silva';
+
+USE rh_db;
+
 UPDATE funcionarios SET salario = salario * 1.15 WHERE cargo = 'TI';
 UPDATE departamentos SET nome = 'Distribuição' WHERE nome = 'Logística';
 
 -- Exercício 6: Remoção de Dados
+USE ecommerce_db;
+
 DELETE FROM produtos WHERE quantidade_estoque = 0;
 DELETE FROM clientes WHERE email = 'bruno@email.com';
+
+USE rh_db;
+
 DELETE FROM funcionarios WHERE data_contratacao < '2023-06-01';
 DELETE FROM departamentos WHERE nome = 'Design';
 
 -- Exercício 7: Consultas Simples
+USE ecommerce_db;
+
 SELECT * FROM produtos ORDER BY nome;
 SELECT * FROM produtos WHERE preco > 1000.00;
 SELECT * FROM clientes WHERE YEAR(data_cadastro) = 2023 ORDER BY data_cadastro;
+
+USE rh_db;
+
 SELECT nome, salario FROM funcionarios WHERE salario > 5000.00;
 SELECT * FROM departamentos ORDER BY localizacao;
 
 -- Exercício 8: Consultas Avançadas
+USE ecommerce_db;
+
 SELECT COUNT(*) FROM produtos;
 SELECT SUM(preco * quantidade_estoque) FROM produtos;
 SELECT AVG(preco) FROM produtos;
 SELECT MONTH(data_cadastro) AS mes, COUNT(*) FROM clientes GROUP BY mes;
+
+USE rh_db;
+
 SELECT AVG(salario) FROM funcionarios;
 
 -- Exercício 9: Ordenação e Filtros
+USE ecommerce_db;
+
 SELECT * FROM produtos ORDER BY preco DESC LIMIT 5;
 SELECT * FROM clientes WHERE nome LIKE 'A%';
-SELECT * FROM funcionarios WHERE salario BETWEEN 4000 AND 7000;
 SELECT * FROM produtos WHERE nome LIKE '%Gamer%';
+
+USE rh_db;
+
+SELECT * FROM funcionarios WHERE salario BETWEEN 4000 AND 7000;
 SELECT * FROM departamentos ORDER BY id DESC LIMIT 3;
 
 -- Exercício 10: Modificação Estrutural
+USE ecommerce_db;
+
 ALTER TABLE produtos ADD COLUMN desconto DECIMAL(5,2);
 ALTER TABLE clientes CHANGE telefone contato VARCHAR(15);
 ALTER TABLE produtos DROP COLUMN descricao;
 TRUNCATE TABLE clientes;
-DROP TABLE departamentos;
+
+USE rh_db;
+
+DROP TABLE IF EXISTS departamentos;
